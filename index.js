@@ -19,6 +19,11 @@ client.connect(err => {
   const activitiesCollection = client.db("volunteerNetwork").collection("activities");
   const registrationsCollection = client.db("volunteerNetwork").collection("registrations");
 
+  app.get('/', (req, res) => {
+    res.send('Hello folks, It is working.');
+  }) 
+
+
   app.post('/addActivity', (req, res) => {
     const activities = req.body;
     activitiesCollection.insertMany(activities)
